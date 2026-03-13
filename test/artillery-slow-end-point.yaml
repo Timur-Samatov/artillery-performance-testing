@@ -24,10 +24,10 @@ config:
       - http.response_time.p99: 10
       - http.response_time.p95: 5
 scenarios:
-  - name: "Fast requests"
+  - name: "Slow requests"
     weight: 1
     flow:
       - loop:
           - get:
-              url: "/"
+              url: "/slow"
         count: 100
