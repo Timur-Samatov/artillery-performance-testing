@@ -16,7 +16,8 @@
     "test:cov": "jest --coverage",
     "test:debug": "node --inspect-brk -r tsconfig-paths/register -r ts-node/register node_modules/.bin/jest --runInBand",
     "test:e2e": "jest --config ./test/jest-e2e.json",
-    "test:artillery": "artillery run ./test/artillery.yaml"
+    "test:artillery": "artillery run ./test/artillery.yaml",
+    "test:perf": "start-server-and-test start:dev http://localhost:3000 test:artillery"
   },
   "dependencies": {
     "@nestjs/common": "^11.0.1",
@@ -36,6 +37,7 @@
     "artillery": "^2.0.30",
     "jest": "^30.0.0",
     "source-map-support": "^0.5.21",
+    "start-server-and-test": "^2.1.5",
     "supertest": "^7.0.0",
     "ts-jest": "^29.2.5",
     "ts-loader": "^9.5.2",

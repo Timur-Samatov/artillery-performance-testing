@@ -5,11 +5,11 @@ config:
       arrivalRate: 1
       rampTo: 5
       name: "Warm-up phase"
-    - duration: 10
+    - duration: 60
       arrivalRate: 5
       rampTo: 20
       name: "Ramp up phase"
-    - duration: 10
+    - duration: 60
       arrivalRate: 20
       rampTo: 100
       name: "Spike phase"
@@ -28,4 +28,4 @@ scenarios:
       - loop:
           - get:
               url: "/"
-        count: 5
+        count: 100
