@@ -1,0 +1,31 @@
+config:
+  target: "http://localhost:3000"
+  phases:
+    - duration: 10
+      arrivalRate: 1
+      rampTo: 5
+      name: "Warm-up phase"
+    - duration: 10
+      arrivalRate: 5
+      rampTo: 20
+      name: "Ramp up phase"
+    - duration: 10
+      arrivalRate: 20
+      rampTo: 100
+      name: "Spike phase"
+  plugins:
+    ensure: {}
+    apdex: {}
+    metrics-by-endpoint: {}
+  apdex:
+    threshold: 100
+  ensure:
+    thresholds:
+      - http.response_time.p99: 10
+      - http.response_time.p95: 5
+scenarios:
+  - flow:
+      - loop:
+          - get:
+              url: "/"
+        count: 5
